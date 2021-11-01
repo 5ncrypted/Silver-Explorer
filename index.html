@@ -1,0 +1,28 @@
+<title>Silver Explorer</title>
+<script>
+        (function(d){
+            var init = function(){
+                var form = d.getElementById("my_form"), input = d.getElementById("url"), iframe = d.getElementById("browser");
+                form.addEventListener("submit", function(e){
+                    var val = input.value;
+                    if(val) {
+                        iframe.src = "//" + val;
+                        console.log(val);
+                    }
+                    e.preventDefault();
+                }, false);
+            };
+            d.addEventListener("DOMContentLoaded", init, false);
+        })(document);
+    </script>
+
+    <form method="post" target="browser" id="my_form">
+<input style="width:120%;" placeholder="Put the website here (eg. &quot;example.org&quot;)" name="url" id="url" type="text" />         
+
+            <input style="width:8%;" name="submit" type="button" value="Go" />
+
+
+
+
+
+    <iframe name="browser" frameBorder="0" id="browser" src="" style="height:100%; width:100%"></iframe>
