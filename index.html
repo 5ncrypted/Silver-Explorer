@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <title>Silver Explorer</title>
-<meta name="theme-color" content="#003">
+<meta name="theme-color" content="#111">
 <meta name="application-name" content="Silver Explorer">
 <link rel="icon" href="./ExplorerIcon.png" type="image/png">
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
+<style
 * {padding: 0; margin: 0;}
 
 /* Set height of body and the document to 100% */
 body, html {
-  background-color: #003;
+  background-color: #111;
   height: 100%;  
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@ body {
 /* Style tab links */
 .tablink {
   background: rgb(85,85,85);
-  background: linear-gradient(180deg, rgba(85,85,85,1) 0%, rgba(119,119,119,1) 100%);
+  background: linear-gradient(0deg, rgba(85,85,85,1) 0%, rgba(119,119,119,1) 100%);
   border-radius: 10px 10px 0px 0px;
   float: left;
   border: none;
@@ -42,7 +42,7 @@ body {
 
 .tablink:hover {
   background: rgb(119,119,119);
-  background: linear-gradient(180deg, rgba(119,119,119,1) 0%, rgba(153,153,153,1) 100%);
+  background: linear-gradient(0deg, rgba(119,119,119,1) 0%, rgba(153,153,153,1) 100%);
 }
 
 iframe {
@@ -66,10 +66,10 @@ iframe {
 <body>
 
 <div id="tabs">
-<button class="tablink" onclick="openPage('TabA', this, '#008')" id="defaultOpen"></button>
-<button class="tablink" onclick="openPage('TabB', this, '#008')"></button>
-<button class="tablink" onclick="openPage('TabC', this, '#008')"></button>
-<button class="tablink" onclick="openPage('TabD', this, '#008')"></button>
+<button class="tablink" onclick="openPage('TabA', this, '#222')" id="defaultOpen"></button>
+<button class="tablink" onclick="openPage('TabB', this, '#222')"></button>
+<button class="tablink" onclick="openPage('TabC', this, '#222')"></button>
+<button class="tablink" onclick="openPage('TabD', this, '#222')"></button>
 </div>
 
 <div id="TabA" class="tabcontent">
