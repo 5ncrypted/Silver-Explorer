@@ -35,11 +35,10 @@
 
 <input id="myInput" autocomplete="on" style= "font-family: Verdana, sans-serif; color: white; background: #013; border: 2px solid #008; padding: 2px; width: 100%;" type="text" placeholder="">
 <button hidden id="go" style="border: none; background-color: transparent;" onclick="returnText()"></button>
-<embed id="website" src="https://bing.com">
+<embed id="website" src="https://www.metacrawler.com">
 <script type="text/javascript">
 function returnText(){
     let input = document.getElementById("myInput").value;
-    var input = "//" + input
     document.getElementById('website').setAttribute('src', input)
 }
 
