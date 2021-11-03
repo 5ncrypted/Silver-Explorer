@@ -33,9 +33,12 @@
 
 <body style="background-color:blue;">
 
-<input id="myInput" autocomplete="on" style= "outline: none; font-family: Verdana, sans-serif; color: black; background: #EEE; border: 2px solid #555; padding: 2px; width: 100%;" type="text" placeholder="">
+<div>
+<input id="myInput" autocomplete="on" style= "outline: none; font-family: Verdana, sans-serif; color: black; background: #EEE; border: 2px solid #555; padding: 2px; width: 80%;" type="text" placeholder="">
+<div style="font-family: Verdana, sans-serif; background: #555; padding 2px; width: 20%;"><div onclick="openFullscreen();">&#26F6</div></div>
 <button hidden id="go" style="outline: none; background-color: transparent;" onclick="returnText()"></button>
-
+</div>
+   
 <embed id="website" src="https://www.metacrawler.com">
 <script type="text/javascript">
 function returnText(){
@@ -50,4 +53,16 @@ website.addEventListener("keyup", function(event) {
     document.getElementById("go").click();
   }
 });
+</script>
+<script>
+var elem = document.getElementById("website");
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
 </script>
