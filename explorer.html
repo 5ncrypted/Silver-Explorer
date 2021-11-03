@@ -1,5 +1,6 @@
 <!doctype html>
 <title>Silver Explorer</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <meta name="theme-color" content="#EFEFEF">
 <meta name="application-name" content="Silver Explorer">
 <link rel="icon" href="../ExplorerIcon.png" type="image/png">
@@ -31,11 +32,17 @@
       }
     </style>
 
-<body style="background-color:blue;">
+<body style="background-color:#555;">
 
 <div>
-<input id="myInput" autocomplete="on" style= "outline: none; font-family: Verdana, sans-serif; color: black; background: #EEE; border: 2px solid #555; padding: 2px; width: 80%;" type="text" placeholder="">
-<div style="font-family: Verdana, sans-serif; background: #555; padding 2px; width: 20%;"><div onclick="openFullscreen();">&#26F6</div></div>
+<input id="myInput" autocomplete="on" style= "outline: none; font-family: Verdana, sans-serif; color: black; background: #EEE; border: 2px solid #555; padding: 2px; width: 90%;" type="text" placeholder=""></input>
+<div style="font-family: Verdana, sans-serif; background: #555; padding 2px; width: 10%; float: right;">
+   <div>
+      <b><i style="cursor: pointer; color: white;" onclick="openFullscreen();" class="material-icons">fullscreen</i></b>
+      <b><i style="cursor: pointer; color: white; float: right;" onclick="reload();" class="material-icons">refresh</i></b>
+      <b><i style="cursor: pointer; color: white; float: right;" onclick="home();" class="material-icons">home</i></b>
+   </div>
+</div>
 <button hidden id="go" style="outline: none; background-color: transparent;" onclick="returnText()"></button>
 </div>
    
@@ -53,8 +60,7 @@ website.addEventListener("keyup", function(event) {
     document.getElementById("go").click();
   }
 });
-</script>
-<script>
+
 var elem = document.getElementById("website");
 function openFullscreen() {
   if (elem.requestFullscreen) {
@@ -64,5 +70,13 @@ function openFullscreen() {
   } else if (elem.msRequestFullscreen) { /* IE11 */
     elem.msRequestFullscreen();
   }
+}
+
+function reload() {
+            document.getElementById('website').src += '';
+        }
+        
+function home() {
+document.getElementById('website').setAttribute('src', "https://www.metacrawler.com")
 }
 </script>
