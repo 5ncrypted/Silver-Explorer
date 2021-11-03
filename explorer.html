@@ -34,15 +34,24 @@
 
 <body style="background-color:#555;">
 
-<div>
-<input id="myInput" autocomplete="on" style= "outline: none; font-family: Verdana, sans-serif; color: black; background: #EEE; border: 2px solid #555; padding: 2px; width: 90%;" type="text" placeholder=""></input>
-<div style="font-family: Verdana, sans-serif; background: #555; padding 2px; width: 10%; float: right;">
-   <div>
-      <b><i style="cursor: pointer; color: white;" onclick="openFullscreen();" class="material-icons">fullscreen</i></b>
-      <b><i style="cursor: pointer; color: white; float: right;" onclick="reload();" class="material-icons">refresh</i></b>
-      <b><i style="cursor: pointer; color: white; float: right;" onclick="home();" class="material-icons">home</i></b>
-   </div>
+<div style="display: flex;">
+
+<div style="font-family: Verdana, sans-serif; background: #555; padding 2px; float: right;">
+
+<b><i style="cursor: pointer; color: white; float: right;" onclick="reload();" class="material-icons">refresh</i></b>
+
+<b><i style="cursor: pointer; color: white; float: right;" onclick="home();" class="material-icons">home</i></b>
+
 </div>
+
+<input id="myInput" autocomplete="on" style= "outline: none; font-family: Verdana, sans-serif; color: black; background: #EEE; border: 2px solid #555; padding: 2px; flex-grow: 1;" type="text" placeholder=""></input>
+
+<div style="font-family: Verdana, sans-serif; background: #555; padding 2px; float: right;">
+
+<b><i style="cursor: pointer; color: white;" onclick="openFullscreen();" class="material-icons">fullscreen</i></b>
+
+</div>
+
 <button hidden id="go" style="outline: none; background-color: transparent;" onclick="returnText()"></button>
 </div>
    
@@ -50,7 +59,13 @@
 <script type="text/javascript">
 function returnText(){
     let input = document.getElementById("myInput").value;
-    document.getElementById('website').setAttribute('src', input)
+    let testIfWebsite = "."
+    if (input.includes(testIfWebsite)) {
+	document.getElementById('website').setAttribute('src', "//" + input)
+} else {
+	document.getElementById('website').setAttribute('src', "https://www.metacrawler.com/serp?q=" + input)
+}
+
 }
 
 var website = document.getElementById("myInput");
@@ -77,6 +92,11 @@ function reload() {
         }
         
 function home() {
-document.getElementById('website').setAttribute('src', "https://www.metacrawler.com")
+    document.getElementById('website').setAttribute('src', "https://www.metacrawler.com")
+}
+
+function search() {
+    let input = document.getElementById("myInput").value;
+    document.getElementById('website').setAttribute('src', "https://www.metacrawler.com/serp?q=" + input)
 }
 </script>
