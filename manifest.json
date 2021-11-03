@@ -1,0 +1,17 @@
+{
+  "background_color": "#EFEFEF",
+  "categories": ["silveros", "iframe", "leech"]
+  "description": "Silver Explorer is a web browser that sort of leeches off of your current web browser."
+  "dir": "ltr",
+  "display": "fullscreen"
+  "lang": "en-US"
+  "name": "Silver Explorer"
+  "theme_color": "#EFEFEF"
+  "icons": [
+  {
+    "src": "ExplorerIcon.png",
+    "sizes": "960x960",
+    "type": "image/png"
+  }
+  ]
+}
