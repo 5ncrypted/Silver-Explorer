@@ -1,12 +1,13 @@
 {
   "background_color": "#EFEFEF",
-  "categories": ["silveros", "iframe", "leech"]
-  "description": "Silver Explorer is a web browser that sort of leeches off of your current web browser."
+  "categories": ["silveros", "iframe", "leech"],
+  "description": "Silver Explorer is a web browser that sort of leeches off of your current web browser.",
   "dir": "ltr",
-  "display": "fullscreen"
-  "lang": "en-US"
-  "name": "Silver Explorer"
-  "theme_color": "#EFEFEF"
+  "display": "fullscreen",
+  "lang": "en-US",
+  "start_url": "https://projectsilveros.github.io/Silver-Explorer/",
+  "name": "Silver Explorer",
+  "theme_color": "#EFEFEF",
   "icons": [
   {
     "src": "ExplorerIcon.png",
