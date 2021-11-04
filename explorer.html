@@ -50,22 +50,32 @@
 
 <b><i style="cursor: pointer; color: white;" onclick="openFullscreen();" class="material-icons">fullscreen</i></b>
 
+<b><i style="cursor: pointer; color: white;" onclick="" class="material-icons">more_vert</i></b>
+
 </div>
 
 <button hidden id="go" style="outline: none; background-color: transparent;" onclick="returnText()"></button>
 </div>
    
-<embed id="website" src="https://www.metacrawler.com">
+<embed id="website" src="//www.metacrawler.com">
 <script type="text/javascript">
 function returnText(){
     let input = document.getElementById("myInput").value;
     let testIfWebsite = "."
     if (input.includes(testIfWebsite)) {
-	document.getElementById('website').setAttribute('src', "//" + input)
+	let testIfWebsite = "://"
+    if (input.includes(testIfWebsite)) {
+    document.getElementById('website').setAttribute('src', input)
+    } else { document.getElementById('website').setAttribute('src', "//" + input)
+    }
 } else {
 	document.getElementById('website').setAttribute('src', "https://www.metacrawler.com/serp?q=" + input)
 }
-
+    reload();
+    inputRefresh();
+    setTimeout(reload, 3000)
+    setTimeout(inputRefresh, 4000)
+    
 }
 
 var website = document.getElementById("myInput");
@@ -89,14 +99,18 @@ function openFullscreen() {
 
 function reload() {
             document.getElementById('website').src += '';
+            inputRefresh();
         }
+        
+function inputRefresh() {
+            let site = document.getElementById('website').getAttribute('src');
+            document.getElementById("myInput").value = site
+}
         
 function home() {
     document.getElementById('website').setAttribute('src', "https://www.metacrawler.com")
+    document.getElementById("myInput").value = ""
 }
 
-function search() {
-    let input = document.getElementById("myInput").value;
-    document.getElementById('website').setAttribute('src', "https://www.metacrawler.com/serp?q=" + input)
-}
+
 </script>
