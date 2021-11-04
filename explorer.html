@@ -38,15 +38,17 @@
 
 <div style="font-family: Verdana, sans-serif; background: #555; padding 2px; float: right;">
 
-<b><i style="cursor: pointer; color: white; float: right;" onclick="reload();" class="material-icons">refresh</i></b>
+<b><i style="cursor: pointer; color: white;" onclick="home();" class="material-icons">home</i></b>
 
-<b><i style="cursor: pointer; color: white; float: right;" onclick="home();" class="material-icons">home</i></b>
+<b><i style="cursor: pointer; color: white;" onclick="reload();" class="material-icons">refresh</i></b>
 
 </div>
 
 <input id="myInput" autocomplete="on" style= "outline: none; font-family: Verdana, sans-serif; color: black; background: #EEE; border: 2px solid #555; padding: 2px; flex-grow: 1;" type="text" placeholder=""></input>
 
 <div style="font-family: Verdana, sans-serif; background: #555; padding 2px; float: right;">
+
+<b><i style="cursor: pointer; color: white;" onclick="reload(); inputRefresh();" class="material-icons">keyboard_return</i></b>
 
 <b><i style="cursor: pointer; color: white;" onclick="openFullscreen();" class="material-icons">fullscreen</i></b>
 
@@ -73,8 +75,8 @@ function returnText(){
 }
     reload();
     inputRefresh();
-    setTimeout(reload, 3000)
-    setTimeout(inputRefresh, 4000)
+    setTimeout(reload, 500)
+    setTimeout(inputRefresh, 1000)
     
 }
 
