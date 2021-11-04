@@ -8,17 +8,11 @@
   "start_url": "https://projectsilveros.github.io/Silver-Explorer/",
   "name": "Silver Explorer",
   "theme_color": "#EFEFEF",
-  "protocol_handlers": [
-  {
-    "protocol": "meta",
-    "url": "https://www.metacrawler.com/serp?q=%s"
-  }
-  ],
-    "icons": [
-  {
-    "src": "ExplorerIcon.png",
-    "sizes": "960x960",
-    "type": "image/png"
-  }
-  ]
+  "icons": [
+{
+  "src": "ExplorerIcon.png",
+  "sizes": "960x960",
+  "type": "image/png"
+}
+]
 }
