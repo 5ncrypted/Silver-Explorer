@@ -6,6 +6,38 @@
 <link rel="icon" href="../ExplorerIcon.png" type="image/png">
 
 <style>
+
+    .context-menu {
+        position: absolute;
+        text-align: left;
+        padding-left: 8px;
+        background: lightgray;
+        border: 2px solid grey;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+  
+    .context-menu ul {
+        padding: 0px;
+        margin: 0px;
+        min-width: 150px;
+        list-style: none;
+    }
+  
+    .context-menu ul li {
+        padding-bottom: 4px;
+        padding-top: 4px;
+    }
+  
+    .context-menu ul li a {
+        text-decoration: none;
+        color: black;
+    }
+  
+    .context-menu ul li:hover {
+        background: darkgray;
+    }
+    
     * {
       padding: 0;
       margin: 0;
@@ -34,6 +66,18 @@
 
 <body style="background-color:#555;">
 
+<div id="contextMenu" class="context-menu" 
+    style="display: none">
+    <ul>
+        <li style="font-family: Verdana, sans-serif; cursor: pointer; color: black;" onclick="reload();">Reload</li>
+        <li style="font-family: Verdana, sans-serif; cursor: pointer; color: black;" onclick="home();">Home</li>
+        <li style="font-family: Verdana, sans-serif; cursor: pointer; color: black;" onclick="openFullscreen();">Fullscreen</li>
+        <li style="font-family: Verdana, sans-serif; cursor: pointer; color: black;" onclick="search();">Search</li>
+        <li style="font-family: Verdana, sans-serif; cursor: pointer; color: black;" onclick="bingSearch();">Search with Bing</li>
+        <li style="font-family: Verdana, sans-serif; cursor: pointer; color: black;" onclick="returnText();">Go</li>
+    </ul>
+</div>
+
 <div style="display: flex;">
 
 <div style="font-family: Verdana, sans-serif; background: #555; padding 2px; float: right;">
@@ -48,7 +92,7 @@
 
 <div style="font-family: Verdana, sans-serif; background: #555; padding 2px; float: right;">
 
-<b><i style="cursor: pointer; color: white;" onclick="reload(); inputRefresh();" class="material-icons">keyboard_return</i></b>
+<b><i style="cursor: pointer; color: white;" onclick="search()" class="material-icons">search</i></b>
 
 <b><i style="cursor: pointer; color: white;" onclick="openFullscreen();" class="material-icons">fullscreen</i></b>
 
@@ -73,6 +117,26 @@ function returnText(){
 } else {
 	document.getElementById('website').setAttribute('src', "https://www.metacrawler.com/serp?q=" + input)
 }
+    reload();
+    inputRefresh();
+    setTimeout(reload, 500)
+    setTimeout(inputRefresh, 1000)
+    
+}
+
+function search(){
+    let input = document.getElementById("myInput").value;
+    document.getElementById('website').setAttribute('src', "https://www.metacrawler.com/serp?q=" + input)
+    reload();
+    inputRefresh();
+    setTimeout(reload, 500)
+    setTimeout(inputRefresh, 1000)
+    
+}
+
+function bingSearch(){
+    let input = document.getElementById("myInput").value;
+    document.getElementById('website').setAttribute('src', "https://www.bing.com/search?q=" + input)
     reload();
     inputRefresh();
     setTimeout(reload, 500)
@@ -114,5 +178,33 @@ function home() {
     document.getElementById("myInput").value = ""
 }
 
+document.oncontextmenu = rightClick;
+  
+function rightClick(clickEvent) {
+    clickEvent.preventDefault();
+    
+}
 
+    document.onclick = hideMenu;
+    document.oncontextmenu = rightClick;
+      
+    function hideMenu() {
+        document.getElementById("contextMenu")
+                .style.display = "none"
+    }
+  
+    function rightClick(e) {
+        e.preventDefault();
+  
+        if (document.getElementById("contextMenu")
+                .style.display == "block")
+            hideMenu();
+        else{
+            var menu = document.getElementById("contextMenu")
+  
+            menu.style.display = 'block';
+            menu.style.left = e.pageX + "px";
+            menu.style.top = e.pageY + "px";
+        }
+    }
 </script>
