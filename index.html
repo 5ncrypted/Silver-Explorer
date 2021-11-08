@@ -2,6 +2,7 @@
 <title>Silver Explorer</title>
 <meta name="theme-color" content="#EFEFEF">
 <meta name="application-name" content="Silver Explorer">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="icon" href="./ExplorerIcon.png" type="image/png">
 <link rel="manifest" href="./manifest.json">
 <html>
@@ -28,16 +29,40 @@ body {
 }
 
 /* Style tab links */
-.tablink {
+.home {
+  background: #A60;
+}
+
+.normal {
+  flex-grow: 1;
   background: #888;
-  border-radius: 10px 10px 0px 0px;
+}
+
+.plus {
+  border-radius: 15px 15px 0px 0px;
+  background: #EEE;
   float: left;
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
+  padding: 4px 4px;
   font-size: 17px;
-  width: 25%;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+}
+
+.tablink {
+  border-radius: 15px 15px 0px 0px;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 4px 4px;
+  font-size: 17px;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
 }
 
 .tablink:hover {
@@ -62,30 +87,61 @@ iframe {
 
 </style>
 </head>
-<body>
+<body id="body">
 
-<div id="tabs">
-<button class="tablink" onclick="openPage('TabA', this, '#555')" id="defaultOpen"></button>
-<button class="tablink" onclick="openPage('TabB', this, '#555')"></button>
-<button class="tablink" onclick="openPage('TabC', this, '#555')"></button>
-<button class="tablink" onclick="openPage('TabD', this, '#555')"></button>
+<div id="tabs" style="display: flex; flex-direction: row;">
+
+<button class="tablink home" onclick="openPage('Info', this, '#EA0')" id="defaultOpen">
+<b style="cursor: pointer; color: white;" class="material-icons">star</b>
+</button>
+
+<button class="plus" onclick="newtab();">
+<b style="float: left; cursor: pointer; color: black;" class="material-icons">add</b>
+</button>
+
+<button class="tablink normal" id="1" onclick="openPage('T1', this, '#555')">
+<b style="cursor: pointer; color: white;" onclick="remove('1'); removeContent('1');" class="material-icons">close</b>
+</button>
+
+
+<button class="tablink normal" id="2" onclick="openPage('T2', this, '#555')">
+<b style="cursor: pointer; color: white;" onclick="remove('2'); removeContent('2');" class="material-icons">close</b>
+</button>
+
+
+<button class="tablink normal" id="3" onclick="openPage('T3', this, '#555')">
+<b style="cursor: pointer; color: white;" onclick="remove('3'); removeContent('3');" class="material-icons">close</b>
+</button>
+
+<button class="tablink normal" id="4" onclick="openPage('T4', this, '#555')">
+<b style="cursor: pointer; color: white;" onclick="remove('4'); removeContent('4');" class="material-icons">close</b>
+</button>
+
 </div>
 
-<div id="TabA" class="tabcontent">
+<div id="Info" class="tabcontent">
   <iframe src="./explorer.html"></iframe>
 </div>
 
-<div id="TabB" class="tabcontent">
+<div id="T1" class="tabcontent">
   <iframe src="./explorer.html"></iframe>
 </div>
 
-<div id="TabC" class="tabcontent">
+<div id="T2" class="tabcontent">
   <iframe src="./explorer.html"></iframe>
 </div>
 
-<div id="TabD" class="tabcontent">
+<div id="T3" class="tabcontent">
   <iframe src="./explorer.html"></iframe>
 </div>
+
+<div id="T4" class="tabcontent">
+  <iframe src="./explorer.html"></iframe>
+</div>
+
+</body>
+
+<iframe hidden src="4"></iframe>
 
 <script>
 function openPage(pageName,elmnt,color) {
@@ -104,7 +160,17 @@ function openPage(pageName,elmnt,color) {
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+
+function remove(id) {
+    var elem = document.getElementById(id);
+    return elem.parentNode.removeChild(elem);
+}
+
+function removeContent(id) {
+    var content = document.getElementById('T' + id);
+    return content.parentNode.removeChild(content);
+}
+
 </script>
    
-</body>
 </html>
